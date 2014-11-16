@@ -39,10 +39,11 @@ public class MainActivity extends Activity {
         {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id)
             {
-                Intent intent = new Intent (this, DetailsActivity.class);
+                Intent intent = new Intent (MainActivity.this, DetailsActivity.class);
+
                 startActivity(intent);
             }
-        }
+        });
 
 
 
