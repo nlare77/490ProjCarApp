@@ -10,7 +10,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+<<<<<<< HEAD
 import android.widget.TextView;
+=======
+>>>>>>> origin/master
 
 
 public class DetailsActivity extends Activity {
