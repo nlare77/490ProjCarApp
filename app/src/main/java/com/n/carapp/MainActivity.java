@@ -14,47 +14,62 @@ import android.os.Build;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.util.Log;
+import android.app.ProgressDialog;
+import android.os.AsyncTask;
+import android.widget.AdapterView.OnItemClickListener;
+
+import com.parse.GetCallback;
+import com.parse.Parse;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class MainActivity extends Activity {
-    ArrayList<String> carBrandNameList;
+    //ArrayList<String> carBrandNameList;
+    ListView listview;
+    List<ParseObject> ob;
+    ProgressDialog mProgressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_main);
+        new ParseDataTask().execute();
 
-        ListView carBrandList = (ListView)findViewById(R.id.listViewBrands);
+        //ListView carBrandList = (ListView)findViewById(R.id.listViewBrands);
 
-        carBrandNameList = new ArrayList<String>();
-        getBrandNames();
+        //carBrandNameList = new ArrayList<String>();
+        //getBrandNames();
 
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, carBrandNameList);
-        carBrandList.setAdapter(arrayAdapter);
+        //ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, carBrandNameList);
+        //carBrandList.setAdapter(arrayAdapter);
 
         // START HERE JASON, if you comment this out, ListView works fine
-        carBrandList.setOnItemClickListener(new AdapterView.OnItemClickListener()
-        {
-            public void onItemClick(AdapterView<?> parent, View v, int position, long id)
-            {
-                Intent intent = new Intent (MainActivity.this, DetailsActivity.class);
+        //carBrandList.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        //{
+            //public void onItemClick(AdapterView<?> parent, View v, int position, long id)
+            //{
+                //Intent intent = new Intent (MainActivity.this, DetailsActivity.class);
 
-                startActivity(intent);
-            }
-        });
+                //startActivity(intent);
+            //}
+        //});
 
 
 
 
     }
-    void getBrandNames()
+    /*void getBrandNames()
     {
         carBrandNameList.add("Ferrari");
         carBrandNameList.add("Tesla");
         carBrandNameList.add("Lamborghini");
-    }
+    }*/
 
 
     @Override
@@ -76,6 +91,71 @@ public class MainActivity extends Activity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private class ParseDataTask extends AsyncTask<Void,Void,Void>{
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            // Create a progressdialog
+            mProgressDialog = new ProgressDialog(MainActivity.this);
+            // Set progressdialog title
+            mProgressDialog.setTitle("Car App");
+            // Set progressdialog message
+            mProgressDialog.setMessage("Loading...");
+            mProgressDialog.setIndeterminate(false);
+            // Show progressdialog
+            mProgressDialog.show();
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            // Locate the class table named "CarClass" in Parse.com
+            ParseQuery<ParseObject> query = new ParseQuery<ParseObject>(
+                    "CarClass");
+            //query.orderByDescending("_created_at");
+            try {
+                ob = query.find();
+            } catch (ParseException e) {
+                Log.e("Error", e.getMessage());
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            // Locate the listview in listview_main.xml
+            listview = (ListView) findViewById(R.id.listViewBrands);
+            // Pass the results into an ArrayAdapter
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(MainActivity.this,
+                    R.layout.listview_itemadapter);
+            // Retrieve object "CarMake" from Parse.com database
+            for (ParseObject CarClass : ob) {
+                adapter.add((String) CarClass.get("CarMake"));
+            }
+            // Binds the Adapter to the ListView
+            listview.setAdapter(adapter);
+            // Close the progressdialog
+            mProgressDialog.dismiss();
+            // Capture button clicks on ListView items
+            listview.setOnItemClickListener(new OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view,
+                                        int position, long id) {
+                    // Send single item click data to SingleItemView Class
+                    Intent i = new Intent(MainActivity.this,
+                            DetailsActivity.class);
+                    // Pass data "CarMake" followed by the position
+                    i.putExtra("CarMake", ob.get(position).getString("CarMake"));
+                    // Open SingleItemView.java Activity
+                    startActivity(i);
+                }
+            });
+        }
+
+
     }
 
     /**
