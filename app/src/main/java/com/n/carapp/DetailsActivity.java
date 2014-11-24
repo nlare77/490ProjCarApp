@@ -3,23 +3,45 @@ package com.n.carapp;
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-<<<<<<< HEAD
+
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
-=======
->>>>>>> origin/master
+
+import com.parse.GetCallback;
+import com.parse.GetDataCallback;
+import com.parse.ParseException;
+import com.parse.ParseFile;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+import com.parse.ParseUser;
+
+import java.util.List;
 
 
 public class DetailsActivity extends Activity {
 
     TextView txtname;
-    String name;
+    String model;
+    List<ParseObject> ob2;
+    ProgressDialog mProgressDialog2;
+    Bitmap image;
+    ImageView imageofcar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +63,64 @@ public class DetailsActivity extends Activity {
         ActionBar.Tab tab3 = actionBar.newTab().setText("tab3");
         tab3.setTabListener(new TabListener(new Tab3Fragment()));
         actionBar.addTab(tab3);
-       
+
+
+
+        // Locate the class table named "ImageUpload" in Parse.com
+        ParseQuery<ParseObject> query = new ParseQuery<ParseObject>(
+                "CarClass");
+
+        // Locate the objectId from the class
+        query.getInBackground("OCZffPGa7E",
+                new GetCallback<ParseObject>() {
+
+                    public void done(ParseObject object,
+                                     ParseException e) {
+                        // TODO Auto-generated method stub
+
+                        // Locate the column named "ImageName" and set
+                        // the string
+                        ParseFile fileObject = (ParseFile) object
+                                .get("CarImages");
+                        fileObject
+                                .getDataInBackground(new GetDataCallback() {
+
+                                    public void done(byte[] data,
+                                                     ParseException e) {
+                                        if (e == null) {
+                                            Log.d("test",
+                                                    "We've got data in data.");
+                                            // Decode the Byte[] into
+                                            // Bitmap
+                                            Bitmap bmp = BitmapFactory
+                                                    .decodeByteArray(
+                                                            data, 0,
+                                                            data.length);
+
+                                            // Get the ImageView from
+                                            // main.xml
+                                            ImageView image = (ImageView) findViewById(R.id.carImage);
+
+                                            // Set the Bitmap into the
+                                            // ImageView
+                                            image.setImageBitmap(bmp);
+
+
+
+                                        } else {
+                                            Log.d("test",
+                                                    "There was a problem downloading the data.");
+                                        }
+                                    }
+                                });
+                    }
+                });
     }
+
+
+
+
+
 
 
     @Override
@@ -53,11 +131,15 @@ public class DetailsActivity extends Activity {
 
         Intent i = getIntent();
 
-        name = i.getStringExtra("CarMake");
+        model = i.getStringExtra("CarMake");
 
-        txtname=(TextView)findViewById(R.id.name);
 
-        txtname.setText(name);
+
+        txtname = (TextView) findViewById(R.id.model);
+
+        txtname.setText(model);
+
+
 
         return true;
     }
@@ -74,6 +156,8 @@ public class DetailsActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
+
+
     /**
      * A placeholder fragment containing a simple view.
      */
@@ -84,9 +168,16 @@ public class DetailsActivity extends Activity {
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
+                                 Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_details, container, false);
             return rootView;
         }
     }
-}
+
+        }
+
+
+
+
+
+
