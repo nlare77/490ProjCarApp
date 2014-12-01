@@ -39,7 +39,8 @@
                 android:value="com.n.carapp.MainActivity" />
         </activity>
 
-    <activity android:name=".SingleItemView" >
+    <activity android:name=".SingleItemView"
+        android:parentActivityName=".MainActivity" >
     </activity>
         <service android:name="com.parse.PushService"/>
         <receiver android:name="com.parse.ParseBroadcastReceiver">
