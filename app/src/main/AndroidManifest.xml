@@ -9,6 +9,7 @@
     <uses-permission android:name="android.permission.vibrate"/>
     <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
 
     <application
@@ -37,6 +38,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.n.carapp.MainActivity" />
         </activity>
+
+    <activity android:name=".SingleItemView" >
+    </activity>
         <service android:name="com.parse.PushService"/>
         <receiver android:name="com.parse.ParseBroadcastReceiver">
             <intent-filter>

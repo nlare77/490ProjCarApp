@@ -22,6 +22,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import com.parse.GetCallback;
 import com.parse.Parse;
 import com.parse.ParseException;
+import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
@@ -34,66 +35,115 @@ public class MainActivity extends Activity {
     ListView listview;
     List<ParseObject> ob;
     ProgressDialog mProgressDialog;
+    ListViewAdapter adapter;
+    private List<CarInfo> carinfolist = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_main);
-        new ParseDataTask().execute();
+        new RemoteDataTask().execute();
+    }
 
-        //ListView carBrandList = (ListView)findViewById(R.id.listViewBrands);
+        private class RemoteDataTask extends AsyncTask<Void, Void, Void> {
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                // Create a progressdialog
+                mProgressDialog = new ProgressDialog(MainActivity.this);
+                // Set progressdialog title
+                mProgressDialog.setTitle("Car App");
+                // Set progressdialog message
+                mProgressDialog.setMessage("Loading...");
+                mProgressDialog.setIndeterminate(false);
+                // Show progressdialog
+                mProgressDialog.show();
+            }
 
-        //carBrandNameList = new ArrayList<String>();
-        //getBrandNames();
+            @Override
+            protected Void doInBackground(Void... params) {
+                // Create the array
+                carinfolist = new ArrayList<CarInfo>();
+                try {
 
-        //ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, carBrandNameList);
-        //carBrandList.setAdapter(arrayAdapter);
+                    ParseQuery<ParseObject> query = new ParseQuery<ParseObject>(
+                            "CarClass");
+                    // Locate the column named "ranknum" in Parse.com and order list
+                    // by ascending
+                    query.orderByAscending("carmake");
+                    ob = query.find();
+                    for (ParseObject CarMake : ob) {
+                        // Locate images in flag column
+                        ParseFile image = (ParseFile) CarMake.get("CarImages");
 
-        // START HERE JASON, if you comment this out, ListView works fine
-        //carBrandList.setOnItemClickListener(new AdapterView.OnItemClickListener()
-        //{
+                        CarInfo map = new CarInfo();
+                        map.setBrand((String) CarMake.get("CarModel"));
+                        map.setModel((String) CarMake.get("CarMake"));
+                        map.setCarImage(image.getUrl());
+
+                        carinfolist.add(map);
+                    }
+                } catch (ParseException e) {
+                    Log.e("Error", e.getMessage());
+                    e.printStackTrace();
+                }
+                return null;
+            }
+
+
+            //ListView carBrandList = (ListView)findViewById(R.id.listViewBrands);
+
+            //carBrandNameList = new ArrayList<String>();
+            //getBrandNames();
+
+            //ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, carBrandNameList);
+            //carBrandList.setAdapter(arrayAdapter);
+
+            // START HERE JASON, if you comment this out, ListView works fine
+            //carBrandList.setOnItemClickListener(new AdapterView.OnItemClickListener()
+            //{
             //public void onItemClick(AdapterView<?> parent, View v, int position, long id)
             //{
-                //Intent intent = new Intent (MainActivity.this, DetailsActivity.class);
+            //Intent intent = new Intent (MainActivity.this, DetailsActivity.class);
 
-                //startActivity(intent);
+            //startActivity(intent);
             //}
-        //});
+            //});
 
 
 
 
-    }
+
     /*void getBrandNames()
     {
         carBrandNameList.add("Ferrari");
         carBrandNameList.add("Tesla");
         carBrandNameList.add("Lamborghini");
     }*/
+/*
 
+            @Override
+            public boolean onCreateOptionsMenu(Menu menu) {
+                // Inflate the menu; this adds items to the action bar if it is present.
+                getMenuInflater().inflate(R.menu.main, menu);
+                return true;
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
+            }
 
-    }
+            @Override
+            public boolean onOptionsItemSelected(MenuItem item) {
+                // Handle action bar item clicks here. The action bar will
+                // automatically handle clicks on the Home/Up button, so long
+                // as you specify a parent activity in AndroidManifest.xml.
+                int id = item.getItemId();
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    private class ParseDataTask extends AsyncTask<Void,Void,Void>{
+                if (id == R.id.action_settings) {
+                    return true;
+                }
+                return super.onOptionsItemSelected(item);
+            }
+*/
+   /* private class ParseDataTask extends AsyncTask<Void,Void,Void>{
 
         @Override
         protected void onPreExecute() {
@@ -107,9 +157,9 @@ public class MainActivity extends Activity {
             mProgressDialog.setIndeterminate(false);
             // Show progressdialog
             mProgressDialog.show();
-        }
+        } */
 
-        @Override
+      /*  @Override
         protected Void doInBackground(Void... params) {
             // Locate the class table named "CarClass" in Parse.com
             ParseQuery<ParseObject> query = new ParseQuery<ParseObject>(
@@ -122,10 +172,10 @@ public class MainActivity extends Activity {
                 e.printStackTrace();
             }
             return null;
-        }
+        } */
 
-        @Override
-        protected void onPostExecute(Void result) {
+          /*  @Override
+            protected void onPostExecute(Void result) {
             // Locate the listview in listview_main.xml
             listview = (ListView) findViewById(R.id.listViewBrands);
             // Pass the results into an ArrayAdapter
@@ -157,20 +207,23 @@ public class MainActivity extends Activity {
 
 
     }
+*/
+                @Override
+                protected void onPostExecute (Void result){
+                    // Locate the listview in listview_main.xml
+                    listview = (ListView) findViewById(R.id.listViewBrands);
+                    // Pass the results into ListViewAdapter.java
+                    adapter = new ListViewAdapter(MainActivity.this,
+                            carinfolist);
+                    // Binds the Adapter to the ListView
+                    listview.setAdapter(adapter);
+                    // Close the progressdialog
+                    mProgressDialog.dismiss();
+                }
+            }
+        }
 
     /**
      * A placeholder fragment containing a simple view.
      */
-    public static class PlaceholderFragment extends Fragment {
 
-        public PlaceholderFragment() {
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-            return rootView;
-        }
-    }
-}
