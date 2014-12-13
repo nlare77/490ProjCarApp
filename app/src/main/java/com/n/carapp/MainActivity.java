@@ -112,12 +112,11 @@ public class MainActivity extends Activity {
 
                     ParseQuery<ParseObject> query = new ParseQuery<ParseObject>(
                             "CarClass");
-                    // Locate the column named "ranknum" in Parse.com and order list
-                    // by ascending
+
                     query.orderByAscending("carmake");
                     ob = query.find();
                     for (ParseObject CarMake : ob) {
-                        // Locate images in flag column
+
                         ParseFile image = (ParseFile) CarMake.get("CarImages");
 
                         CarInfo map = new CarInfo();
