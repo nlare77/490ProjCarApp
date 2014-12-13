@@ -4,8 +4,6 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
-import android.view.View;
-import android.widget.FrameLayout;
 
 /**
  * Created by jpapp_000 on 11/16/2014.

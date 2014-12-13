@@ -1,13 +1,9 @@
 package com.n.carapp;
 
-import android.app.Activity;
-import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Toast;
+
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
@@ -17,15 +13,6 @@ import com.google.android.youtube.player.YouTubePlayer.PlayerStateChangeListener
 import com.google.android.youtube.player.YouTubePlayer.Provider;
 import com.google.android.youtube.player.YouTubePlayerView;
 
-
-
-import com.google.android.youtube.player.YouTubePlayer;
-import com.google.android.youtube.player.YouTubePlayerView;
-
-import java.util.List;
-
-import static com.n.carapp.R.id.youtube_player;
-
 /**
  * Created by jpapp_000 on 12/7/2014.
  */
@@ -33,9 +20,6 @@ public class YoutubeFragment extends YouTubeBaseActivity implements YouTubePlaye
 
     String video;
     public static final String API_KEY = "AIzaSyAj9DA_V1P-1nsEQwUKP311sgRILWebdD8";
-
-    //public static final String VIDEO_ID = "ZyerDilMeLM";
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -61,8 +45,6 @@ public class YoutubeFragment extends YouTubeBaseActivity implements YouTubePlaye
             player.cueVideo(video);
         }
     }
-
-
 
     protected YouTubePlayer.Provider getYouTubePlayerProvider(){
         return (YouTubePlayerView)findViewById(R.id.youtube_player);

@@ -52,10 +52,6 @@ public class CarInfo {
         this.topSpeed = topSpeed;
     }
 
-
-
-
-
     public String getCarImage() {
         return carImage;
     }
