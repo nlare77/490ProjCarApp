@@ -3,6 +3,7 @@ package com.n.carapp;
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -19,6 +20,7 @@ import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.widget.AdapterView.OnItemClickListener;
 
+import com.google.android.youtube.player.YouTubePlayerFragment;
 import com.parse.GetCallback;
 import com.parse.Parse;
 import com.parse.ParseException;
@@ -42,12 +44,53 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_main);
+
+        ActionBar actionBar = getActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+
+        /*ActionBar.Tab tab1 = actionBar.newTab().setText("Videos");
+        tab1.setTabListener(new TabListener(new YouTubePlayerFragment()));
+        actionBar.addTab(tab1);*/
+
         new RemoteDataTask().execute();
+
+
     }
 
-        private class RemoteDataTask extends AsyncTask<Void, Void, Void> {
-            @Override
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+
+        switch (id){
+            case R.id.videos : videos(); return true;
+            default:return false;
+        }
+    }
+
+    private void videos() {
+        Intent videointent = new Intent(MainActivity.this,YouTubeActivity.class);
+        MainActivity.this.startActivity(videointent);
+
+    }
+
+
+
+    private class RemoteDataTask extends AsyncTask<Void, Void, Void> {
+
+
+        @Override
             protected void onPreExecute() {
+
+
+
                 super.onPreExecute();
                 // Create a progressdialog
                 mProgressDialog = new ProgressDialog(MainActivity.this);
@@ -58,6 +101,7 @@ public class MainActivity extends Activity {
                 mProgressDialog.setIndeterminate(false);
                 // Show progressdialog
                 mProgressDialog.show();
+
             }
 
             @Override
@@ -80,6 +124,7 @@ public class MainActivity extends Activity {
                         map.setBrand((String) CarMake.get("CarModel"));
                         map.setModel((String) CarMake.get("CarMake"));
                         map.setCarImage(image.getUrl());
+                        map.setVideoID(image.getUrl());
 
                         carinfolist.add(map);
                     }
@@ -189,20 +234,7 @@ public class MainActivity extends Activity {
             listview.setAdapter(adapter);
             // Close the progressdialog
             mProgressDialog.dismiss();
-            // Capture button clicks on ListView items
-            listview.setOnItemClickListener(new OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view,
-                                        int position, long id) {
-                    // Send single item click data to SingleItemView Class
-                    Intent i = new Intent(MainActivity.this,
-                            DetailsActivity.class);
-                    // Pass data "CarMake" followed by the position
-                    i.putExtra("CarMake", ob.get(position).getString("CarMake"));
-                    // Open SingleItemView.java Activity
-                    startActivity(i);
-                }
-            });
+
         }
 
 
@@ -219,8 +251,30 @@ public class MainActivity extends Activity {
                     listview.setAdapter(adapter);
                     // Close the progressdialog
                     mProgressDialog.dismiss();
+                    /*// Capture button clicks on ListView items
+                    listview.setOnItemClickListener(new OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view,
+                                                int position, long id) {
+                            // Send single item click data to SingleItemView Class
+                            Intent i = new Intent(MainActivity.this,
+                                    DetailsActivity.class);
+                            // Pass data "CarMake" followed by the position
+                            i.putExtra("CarMake", ob.get(position).getString("CarMake"));
+                            // Open SingleItemView.java Activity
+                            startActivity(i);
+                        }
+                    });*/
+
                 }
+
+
+
+
             }
+
+
+
         }
 
     /**

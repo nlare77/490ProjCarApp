@@ -6,8 +6,9 @@ package com.n.carapp;
 public class CarInfo {
     private String brand;
     private String model;
-
     private String carImage;
+    private String videoID;
+
 
     public String getBrand() {
         return brand;
@@ -26,7 +27,6 @@ public class CarInfo {
     }
 
 
-
     public String getCarImage() {
         return carImage;
     }
@@ -34,5 +34,13 @@ public class CarInfo {
     public void setCarImage(String carImage) {
         this.carImage = carImage;
     }
+
+    public String getVideoID() { return videoID; }
+
+    public void setVideoID(String videoID) {this.videoID = videoID; }
+
+
 }
+
+
 

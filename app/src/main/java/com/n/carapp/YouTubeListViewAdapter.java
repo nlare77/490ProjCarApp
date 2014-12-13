@@ -1,7 +1,6 @@
 package com.n.carapp;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,42 +13,38 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Nick7 on 11/30/2014.
+ * Created by jpapp_000 on 12/7/2014.
  */
-public class ListViewAdapter extends BaseAdapter {
+/*public class YouTubeListViewAdapter extends BaseAdapter {
 
     // Declare Variables
     Context context;
     LayoutInflater inflater;
-    ImageLoader imageLoader;
-    private List<CarInfo> carinfolist = null;
+    private List<CarInfo> carlist = null;
     private ArrayList<CarInfo> arraylist;
 
-    public ListViewAdapter(Context context,
-                           List<CarInfo> carinfolist) {
+    public YouTubeListViewAdapter(Context context,
+                           List<CarInfo> carlist) {
         this.context = context;
-        this.carinfolist = carinfolist;
+        this.carlist = carlist;
         inflater = LayoutInflater.from(context);
         this.arraylist = new ArrayList<CarInfo>();
-        this.arraylist.addAll(carinfolist);
-        imageLoader = new ImageLoader(context);
+        this.arraylist.addAll(carlist);
     }
 
     public class ViewHolder {
         TextView brand;
         TextView model;
-
-        ImageView carImage;
     }
 
     @Override
     public int getCount() {
-        return carinfolist.size();
+        return carlist.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return carinfolist.get(position);
+        return carlist.get(position);
     }
 
     @Override
@@ -61,52 +56,39 @@ public class ListViewAdapter extends BaseAdapter {
         final ViewHolder holder;
         if (view == null) {
             holder = new ViewHolder();
-            view = inflater.inflate(R.layout.listview_item, null);
+            view = inflater.inflate(R.layout.youtubelistviewitem, null);
             // Locate the TextViews in listview_item.xml
-            holder.brand = (TextView) view.findViewById(R.id.brand);
-            holder.model = (TextView) view.findViewById(R.id.model);
-
+            holder.brand = (TextView) view.findViewById(R.id.youtube_brand);
+            holder.model = (TextView) view.findViewById(R.id.youtube_model);
 
             // Locate the ImageView in listview_item.xml
-            holder.carImage = (ImageView) view.findViewById(R.id.carImage);
             view.setTag(holder);
         } else {
             holder = (ViewHolder) view.getTag();
         }
         // Set the results into TextViews
-        holder.brand.setText(carinfolist.get(position).getBrand());
-        holder.model.setText(carinfolist.get(position).getModel());
+        holder.brand.setText(carlist.get(position).getBrand());
+        holder.model.setText(carlist.get(position).getModel());
 
-        // Set the results into ImageView
-        imageLoader.DisplayImage(carinfolist.get(position).getCarImage(),
-                holder.carImage);
+
         // Listen for ListView Item Click
         view.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View arg0) {
                 // Send single item click data to SingleItemView Class
-                Intent intent = new Intent(context, SingleItemView.class);
-                //Intent youtubeintent = new Intent(context, YoutubeFragment.class);
+                Intent intent = new Intent(context, YoutubeFragment.class);
 
                 intent.putExtra("brand",
-                        (carinfolist.get(position).getBrand()));
+                        (carlist.get(position).getBrand()));
 
                 intent.putExtra("model",
-                        (carinfolist.get(position).getModel()));
+                        (carlist.get(position).getModel()));
 
-                // Pass all data flag
-                intent.putExtra("car image",
-                        (carinfolist.get(position).getCarImage()));
-
-                intent.putExtra("video", (carinfolist.get(position).getVideoID()));
+                intent.putExtra("video", (carlist.get(position).getVideoID()));
 
                 // Start SingleItemView Class
                 context.startActivity(intent);
-
-
-
-
 
 
 
@@ -115,4 +97,4 @@ public class ListViewAdapter extends BaseAdapter {
         return view;
     }
 
-}
+}*/
