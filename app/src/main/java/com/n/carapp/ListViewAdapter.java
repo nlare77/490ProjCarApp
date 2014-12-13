@@ -38,6 +38,10 @@ public class ListViewAdapter extends BaseAdapter {
     public class ViewHolder {
         TextView brand;
         TextView model;
+        TextView sixtyTime;
+        TextView topSpeed;
+        TextView engine;
+
 
         ImageView carImage;
     }
@@ -65,6 +69,10 @@ public class ListViewAdapter extends BaseAdapter {
             // Locate the TextViews in listview_item.xml
             holder.brand = (TextView) view.findViewById(R.id.brand);
             holder.model = (TextView) view.findViewById(R.id.model);
+            /*holder.engine = (TextView) view.findViewById(R.id.engine);
+            holder.topSpeed = (TextView) view.findViewById(R.id.topSpeed);
+            holder.sixtyTime = (TextView) view.findViewById(R.id.sixtyTime); */
+
 
 
             // Locate the ImageView in listview_item.xml
@@ -76,6 +84,10 @@ public class ListViewAdapter extends BaseAdapter {
         // Set the results into TextViews
         holder.brand.setText(carinfolist.get(position).getBrand());
         holder.model.setText(carinfolist.get(position).getModel());
+       /* holder.engine.setText(carinfolist.get(position).getEngine());
+        holder.sixtyTime.setText(carinfolist.get(position).getSixtyTime());
+        holder.topSpeed.setText(carinfolist.get(position).getTopSpeed()); */
+
 
         // Set the results into ImageView
         imageLoader.DisplayImage(carinfolist.get(position).getCarImage(),
@@ -94,6 +106,13 @@ public class ListViewAdapter extends BaseAdapter {
 
                 intent.putExtra("model",
                         (carinfolist.get(position).getModel()));
+
+                intent.putExtra("engine",
+                        (carinfolist.get(position).getEngine()));
+                intent.putExtra("sixtyTime",
+                        (carinfolist.get(position).getSixtyTime()));
+                intent.putExtra("topSpeed",
+                        (carinfolist.get(position).getTopSpeed()));
 
                 // Pass all data
                 intent.putExtra("car image",

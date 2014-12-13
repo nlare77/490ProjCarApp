@@ -7,6 +7,9 @@
     <string name="title_activity_details">DetailsActivity</string>
     <string name="brandlabel">"Brand : "</string>
     <string name="modellabel">"Model : "</string>
+    <string name="enginelabel">"Engine : "</string>
+    <string name="sixtyTimelabel">"0-60 time : "</string>
+    <string name="topSpeedlabel">"Top Speed : "</string>
 
 
 </resources>

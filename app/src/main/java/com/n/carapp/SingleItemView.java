@@ -18,6 +18,9 @@ public class SingleItemView extends Activity {
     // Declare Variables
     String brand;
     String model;
+    String engine;
+    String sixtyTime;
+    String topSpeed;
 
     String carImage;
     String position;
@@ -121,12 +124,22 @@ public class SingleItemView extends Activity {
 
             model = i.getStringExtra("model");
 
-            // Get the result of flag
+            engine = i.getStringExtra("engine");
+
+            sixtyTime = i.getStringExtra("sixtyTime");
+
+            topSpeed = i.getStringExtra("topSpeed");
+
+
             carImage = i.getStringExtra("car image");
 
-            // Locate the TextViews in singleitemview.xml
+
             TextView txtbrand = (TextView) findViewById(R.id.brand);
             TextView txtmodel = (TextView) findViewById(R.id.model);
+            TextView txtsixtyTIme = (TextView) findViewById(R.id.sixtyTime);
+            TextView txtengine = (TextView) findViewById(R.id.engine);
+            TextView txttopSpeed = (TextView) findViewById(R.id.topSpeed);
+
 
 
             // Locate the ImageView in singleitemview.xml
@@ -135,6 +148,9 @@ public class SingleItemView extends Activity {
             // Set results to the TextViews
             txtbrand.setText(brand);
             txtmodel.setText(model);
+            txtengine.setText(engine);
+            txtsixtyTIme.setText(sixtyTime);
+            txttopSpeed.setText(topSpeed);
 
 
             // Capture position and set results to the ImageView

@@ -6,6 +6,9 @@ package com.n.carapp;
 public class CarInfo {
     private String brand;
     private String model;
+    private String engine;
+    private String sixtyTime;
+    private String topSpeed;
     private String carImage;
     private String videoID;
 
@@ -25,6 +28,32 @@ public class CarInfo {
     public void setModel(String model) {
         this.model = model;
     }
+
+    public String getEngine() {
+        return engine;
+    }
+
+    public void setEngine(String engine) {
+        this.engine = engine;
+    }
+    public String getSixtyTime() {
+        return sixtyTime;
+    }
+
+    public void setSixtyTime(String sixtyTime) {
+        this.sixtyTime = sixtyTime;
+    }
+
+    public String getTopSpeed() {
+        return topSpeed;
+    }
+
+    public void setTopSpeed(String topSpeed) {
+        this.topSpeed = topSpeed;
+    }
+
+
+
 
 
     public String getCarImage() {

@@ -29,6 +29,54 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/brand"
         android:layout_toRightOf="@+id/modellabel" />
+    <TextView
+        android:id="@+id/enginelabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/modellabel"
+        android:text="@string/enginelabel" />
+
+    <TextView
+        android:id="@+id/engine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/model"
+        android:layout_toRightOf="@+id/enginelabel" />
+
+
+
+    <TextView
+        android:id="@+id/sixtyTimelabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/enginelabel"
+        android:text="@string/sixtyTimelabel" />
+    <TextView
+        android:id="@+id/sixtyTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/engine"
+        android:layout_toRightOf="@+id/sixtyTimelabel" />
+
+    <TextView
+        android:id="@+id/topSpeedlabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sixtyTimelabel"
+        android:text="@string/topSpeedlabel" />
+
+    <TextView
+        android:id="@+id/topSpeed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sixtyTime"
+        android:layout_toRightOf="@+id/topSpeedlabel" />
+
+
+
+
+
+
 
 
 
@@ -46,7 +94,8 @@
         android:text="Video"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/modellabel"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/MapButton"
         />
     <Button
 

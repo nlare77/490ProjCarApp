@@ -39,7 +39,7 @@ public class ImageLoader {
         executorService = Executors.newFixedThreadPool(5);
     }
 
-    final int stub_id = R.drawable.teslamodels;
+    final int stub_id = R.drawable.loading;
 
     public void DisplayImage(String url, ImageView imageView) {
         imageViews.put(imageView, url);

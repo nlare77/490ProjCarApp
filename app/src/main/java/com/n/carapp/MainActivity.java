@@ -122,6 +122,9 @@ public class MainActivity extends Activity {
                         CarInfo map = new CarInfo();
                         map.setBrand((String) CarMake.get("CarModel"));
                         map.setModel((String) CarMake.get("CarMake"));
+                        map.setEngine((String) CarMake.get("Engine"));
+                        map.setSixtyTime((String) CarMake.get("sixtyTime"));
+                        map.setTopSpeed((String) CarMake.get("TopSpeed"));
                         map.setCarImage(image.getUrl());
                         map.setVideoID(image.getUrl());
 
