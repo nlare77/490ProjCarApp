@@ -95,7 +95,7 @@ public class ListViewAdapter extends BaseAdapter {
                 intent.putExtra("model",
                         (carinfolist.get(position).getModel()));
 
-                // Pass all data flag
+                // Pass all data
                 intent.putExtra("car image",
                         (carinfolist.get(position).getCarImage()));
 

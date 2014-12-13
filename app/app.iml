@@ -80,7 +80,12 @@
     <orderEntry type="jdk" jdkName="Android API 20 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="Parse-1.7.1" level="project" />
+<<<<<<< HEAD
     <orderEntry type="library" exported="" name="YouTubeAndroidPlayerApi" level="project" />
+=======
+    <orderEntry type="library" exported="" name="support-v4-19.1.0" level="project" />
+    <orderEntry type="library" exported="" name="play-services-5.0.89" level="project" />
+>>>>>>> origin/master
     <orderEntry type="library" exported="" name="bolts-android-1.1.2" level="project" />
   </component>
 </module>

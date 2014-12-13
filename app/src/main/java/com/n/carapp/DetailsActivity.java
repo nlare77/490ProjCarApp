@@ -48,7 +48,7 @@ public class DetailsActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_details);
 
-        ActionBar actionBar = getActionBar();
+        /*ActionBar actionBar = getActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
@@ -62,7 +62,7 @@ public class DetailsActivity extends Activity {
 
         ActionBar.Tab tab3 = actionBar.newTab().setText("tab3");
         tab3.setTabListener(new TabListener(new Tab3Fragment()));
-        actionBar.addTab(tab3);
+        actionBar.addTab(tab3); */
 
 
 
