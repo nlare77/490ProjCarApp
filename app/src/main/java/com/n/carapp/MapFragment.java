@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.gms.maps.CameraUpdate;
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
@@ -18,6 +20,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class MapFragment extends Activity {
 
     private GoogleMap mMap;
+    static final LatLng LOU = new LatLng(38.25, -85.77);
     static final LatLng POR = new LatLng (38.243127, -85.627982);
     static final LatLng FER = new LatLng (38.252167, -85.637608);
     static final LatLng COR = new LatLng (38.220224, -85.578228);
@@ -38,6 +41,11 @@ public class MapFragment extends Activity {
 
 
         mMap = ((com.google.android.gms.maps.MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
+        CameraUpdate center = CameraUpdateFactory.newLatLng(LOU);
+        CameraUpdate zoom=CameraUpdateFactory.zoomTo(10);
+
+        mMap.moveCamera(center);
+        mMap.animateCamera(zoom);
 
         Marker boxster = mMap.addMarker(new MarkerOptions()
                 .position(POR)
