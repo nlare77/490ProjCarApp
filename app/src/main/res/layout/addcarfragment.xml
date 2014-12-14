@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Car Information to Database"
+        android:textSize="20sp"
+        android:id="@+id/Title"
+        android:paddingBottom="20dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/carmodellabel"
+        android:textSize="16sp"
+        android:padding="2dp"
+        android:text="Car Model:"
+        android:layout_below="@id/Title"
+        />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/carmodelinput"
+        android:textSize="16sp"
+        android:layout_toRightOf="@id/carmodellabel"
+        android:layout_alignBottom="@+id/carmodellabel" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/carmakelabel"
+        android:text="Car Make:"
+        android:textSize="16sp"
+        android:padding="2dp"
+        android:layout_below="@id/carmodellabel"
+        />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/carmakeinput"
+        android:textSize="16sp"
+        android:layout_toRightOf="@id/carmakelabel"
+        android:layout_below="@+id/carmodelinput"
+        android:layout_alignBottom="@+id/carmakelabel" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/youtubekey"
+        android:text="YouTube Key:"
+        android:textSize="16sp"
+        android:padding="2dp"
+        android:layout_below="@id/carmakelabel"
+        />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/youtubekeyinput"
+        android:textSize="16sp"
+        android:layout_toRightOf="@id/youtubekey"
+        android:layout_below="@+id/carmodelinput"
+        android:layout_alignBottom="@+id/youtubekey" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/enginelabel"
+        android:text="Engine:"
+        android:textSize="16sp"
+        android:padding="2dp"
+        android:layout_below="@id/youtubekey"
+        />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/enginelabelinput"
+        android:textSize="16sp"
+        android:layout_toRightOf="@id/enginelabel"
+        android:layout_below="@+id/youtubekey"
+        android:layout_alignBottom="@+id/enginelabel" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sixtyTimelabellabel"
+        android:text="Sixty Time:"
+        android:textSize="16sp"
+        android:padding="2dp"
+        android:layout_below="@id/enginelabel"
+        />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sixtyTimelabelinput"
+        android:textSize="16sp"
+        android:layout_alignBottom="@+id/sixtyTimelabellabel"
+        android:layout_toEndOf="@+id/enginelabelinput" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/topSpeedlabel"
+        android:text="Top Speed:"
+        android:textSize="16sp"
+        android:padding="2dp"
+        android:layout_below="@id/sixtyTimelabellabel"
+        />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/topSpeedinput"
+        android:textSize="16sp"
+        android:layout_alignBottom="@+id/topSpeedlabel"
+        android:layout_toEndOf="@+id/topSpeedlabel" />
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/addcarbutton"
+        android:text="Add Car"
+        android:layout_below="@id/topSpeedlabel"
+        />
+
+
+
+
+
+
+</RelativeLayout>

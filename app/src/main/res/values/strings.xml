@@ -10,8 +10,10 @@
     <string name="enginelabel">"Engine : "</string>
     <string name="sixtyTimelabel">"0-60 time : "</string>
     <string name="topSpeedlabel">"Top Speed : "</string>
+
     <color name="black">#000000</color>
     <color name="white">#F9F8FA</color>
 
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
