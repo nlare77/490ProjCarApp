@@ -20,10 +20,10 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/wheel_icon"
         android:label="@string/app_name"
         android:theme="@style/AppTheme"
-        android:name=".ParseApplication">
+        android:name=".core.ParseApplication">
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
@@ -31,7 +31,7 @@
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyD9cbr_IgyK56xvjj4rJmS643f_9VO5Cww"/>
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -42,33 +42,26 @@
 
 
 
-        <activity
-            android:name=".DetailsActivity"
-            android:label="@string/title_activity_details"
-            android:parentActivityName=".MainActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.n.carapp.MainActivity" />
-        </activity>
+
 
         <activity android:name=".YouTubeActivity"
             android:label="YouTubeActivity"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".activity.MainActivity">
 
         </activity>
 
         <activity android:name=".YoutubeFragment"
             android:label="YoutubeFragment"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".activity.MainActivity">
 
         </activity>
 
-    <activity android:name=".SingleItemView"
-        android:parentActivityName=".MainActivity" >
+    <activity android:name=".activity.SingleItemView"
+        android:parentActivityName=".activity.MainActivity" >
 
     </activity>
-        <activity android:name=".MapFragment"
-            android:parentActivityName=".SingleItemView" >
+        <activity android:name=".activity.MapActivity"
+            android:parentActivityName=".activity.MainActivity" >
 
         </activity>
 

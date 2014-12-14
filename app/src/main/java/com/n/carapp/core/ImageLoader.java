@@ -1,10 +1,13 @@
-package com.n.carapp;
+package com.n.carapp.core;
 
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.widget.ImageView;
 import android.os.Handler;
+
+import com.n.carapp.R;
+import com.n.carapp.util.Utils;
 
 import java.io.File;
 import java.io.FileInputStream;

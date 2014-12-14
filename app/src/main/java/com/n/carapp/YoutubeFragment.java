@@ -52,7 +52,7 @@ public class YoutubeFragment extends YouTubeBaseActivity implements YouTubePlaye
 
     @Override
     public void onInitializationFailure(Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
-        Toast.makeText(this, "Failured to Initialize!", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Failure to Initialize!", Toast.LENGTH_LONG).show();
     }
 
 

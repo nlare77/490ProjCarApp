@@ -1,11 +1,7 @@
-package com.n.carapp;
+package com.n.carapp.activity;
 
 import android.app.Activity;
-import android.app.Fragment;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -13,11 +9,12 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.n.carapp.R;
 
 /**
- * Created by Nick7 on 12/7/2014.
+ * Created by Nick7 on 12/14/2014.
  */
-public class MapFragment extends Activity {
+public class MapActivity extends Activity {
 
     private GoogleMap mMap;
     static final LatLng LOU = new LatLng(38.25, -85.77);

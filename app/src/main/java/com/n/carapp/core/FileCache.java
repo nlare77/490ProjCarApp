@@ -1,4 +1,4 @@
-package com.n.carapp;
+package com.n.carapp.core;
 
 import android.content.Context;
 

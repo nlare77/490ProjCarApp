@@ -1,4 +1,4 @@
-package com.n.carapp;
+package com.n.carapp.core;
 
 /**
  * Created by Nick7 on 11/30/2014.

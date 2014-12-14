@@ -1,4 +1,4 @@
-package com.n.carapp;
+package com.n.carapp.activity;
 
 import android.app.ActionBar;
 import android.app.Activity;
@@ -11,6 +11,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 
+import com.n.carapp.core.CarInfo;
+import com.n.carapp.adapter.ListViewAdapter;
+import com.n.carapp.R;
+import com.n.carapp.YouTubeActivity;
 import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
@@ -21,7 +25,7 @@ import java.util.List;
 
 
 public class MainActivity extends Activity {
-    //ArrayList<String> carBrandNameList;
+
     ListView listview;
     List<ParseObject> ob;
     ProgressDialog mProgressDialog;
@@ -37,9 +41,7 @@ public class MainActivity extends Activity {
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
-        /*ActionBar.Tab tab1 = actionBar.newTab().setText("Videos");
-        tab1.setTabListener(new TabListener(new YouTubePlayerFragment()));
-        actionBar.addTab(tab1);*/
+
 
         new RemoteDataTask().execute();
 
@@ -124,9 +126,9 @@ public class MainActivity extends Activity {
 
                 @Override
                 protected void onPostExecute (Void result){
-                    // Locate the listview in listview_main.xml
+
                     listview = (ListView) findViewById(R.id.listViewBrands);
-                    // Pass the results into ListViewAdapter.java
+
                     adapter = new ListViewAdapter(MainActivity.this,
                             carinfolist);
                     // Binds the Adapter to the ListView
@@ -141,7 +143,5 @@ public class MainActivity extends Activity {
 
         }
 
-    /**
-     * A placeholder fragment containing a simple view.
-     */
+
 
