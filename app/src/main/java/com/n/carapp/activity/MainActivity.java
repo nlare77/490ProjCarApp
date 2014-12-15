@@ -60,6 +60,8 @@ public class MainActivity extends Activity {
 
         switch (id){
             case R.id.videos : videos(); return true;
+            case R.id.add : addCar(); return true;
+            case R.id.request : requests(); return true;
             default:return false;
         }
     }
@@ -67,6 +69,18 @@ public class MainActivity extends Activity {
     private void videos() {
         Intent videointent = new Intent(MainActivity.this,YouTubeActivity.class);
         MainActivity.this.startActivity(videointent);
+
+    }
+
+    private void addCar() {
+        Intent addcarintent = new Intent(MainActivity.this,AddCarActivity.class);
+        MainActivity.this.startActivity(addcarintent);
+
+    }
+
+    private void requests() {
+        Intent requestintent = new Intent(MainActivity.this,RequestActivity.class);
+        MainActivity.this.startActivity(requestintent);
 
     }
 
