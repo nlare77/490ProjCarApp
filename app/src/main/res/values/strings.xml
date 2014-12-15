@@ -19,9 +19,10 @@
     <string name="vehicle">Vehicle Request</string>
     <string name="request">Enter Request Here</string>
     <string name="Enter">Enter</string>
-    <string name="requestlist">List of Current Vehicle Requests</string>
-    <string name="Addcar">Add Car Information to Database</string>
+    <string name="requestlist">Request List</string>
+    <string name="Addcar">Add Car Information</string>
     <string name="cars">The Cars</string>
     <string name="videos">Video List</string>
+    <string name="details">Car Details</string>
 
 </resources>

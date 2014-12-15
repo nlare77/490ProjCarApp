@@ -4,44 +4,71 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent" >
 
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/details"
+        android:text="@string/details"
+        android:textSize="30dp"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="10dp"
+        android:paddingBottom="20dp"
+
+        />
     <TextView
         android:id="@+id/brandlabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/brandlabel" />
+        android:text="@string/brandlabel"
+        android:layout_below="@id/details"
+        android:textSize="20dp"
+
+        />
 
     <TextView
         android:id="@+id/brand"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/brandlabel" />
+        android:layout_toRightOf="@+id/brandlabel"
+        android:layout_below="@id/details"
+        android:textSize="20dp"
+        />
 
     <TextView
         android:id="@+id/modellabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/brandlabel"
-        android:text="@string/modellabel" />
+        android:text="@string/modellabel"
+        android:textSize="20dp"
+        />
 
     <TextView
         android:id="@+id/model"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/brand"
-        android:layout_toRightOf="@+id/modellabel" />
+        android:layout_toRightOf="@+id/modellabel"
+        android:textSize="20dp"
+        />
     <TextView
         android:id="@+id/enginelabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/modellabel"
-        android:text="@string/enginelabel" />
+        android:text="@string/enginelabel"
+        android:textSize="20dp"
+        />
 
     <TextView
         android:id="@+id/engine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/model"
-        android:layout_toRightOf="@+id/enginelabel" />
+        android:layout_toRightOf="@+id/enginelabel"
+        android:textSize="20dp"
+        />
 
 
 
@@ -50,27 +77,35 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/enginelabel"
-        android:text="@string/sixtyTimelabel" />
+        android:text="@string/sixtyTimelabel"
+        android:textSize="20dp"
+        />
     <TextView
         android:id="@+id/sixtyTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/engine"
-        android:layout_toRightOf="@+id/sixtyTimelabel" />
+        android:layout_toRightOf="@+id/sixtyTimelabel"
+        android:textSize="20dp"
+        />
 
     <TextView
         android:id="@+id/topSpeedlabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/sixtyTimelabel"
-        android:text="@string/topSpeedlabel" />
+        android:text="@string/topSpeedlabel"
+        android:textSize="20dp"
+        />
 
     <TextView
         android:id="@+id/topSpeed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/sixtyTime"
-        android:layout_toRightOf="@+id/topSpeedlabel" />
+        android:layout_toRightOf="@+id/topSpeedlabel"
+        android:textSize="20dp"
+        />
 
 
 
@@ -84,9 +119,11 @@
         android:id="@+id/carImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
+        android:layout_below="@id/topSpeed"
+        android:layout_centerHorizontal="true"
         android:background="#000000"
-        android:padding="1dp" />
+        android:padding="1dp"
+        android:layout_marginTop="30dp"/>
 
 
     <Button
@@ -98,7 +135,9 @@
         android:onClick="startMap"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="66dp" />
+        android:layout_marginBottom="66dp"
+        android:textSize="20dp"
+        />
 
 
 </RelativeLayout>

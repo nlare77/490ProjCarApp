@@ -17,6 +17,9 @@
        android:text="@string/requestlist"
        android:textColor="@color/black"
        android:textSize="20dp"
+       android:layout_centerHorizontal="true"
+       android:paddingBottom="10dp"
+
        />
 
     <ListView
