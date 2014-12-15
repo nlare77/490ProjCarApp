@@ -42,11 +42,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.AddCarActivity"
-            android:label="AddCarActivity"
-            android:parentActivityName=".activity.MainActivity">
-        </activity>
-        <activity
             android:name=".activity.RequestActivity"
             android:label="RequestActivity"
             android:parentActivityName=".activity.MainActivity">
@@ -57,13 +52,9 @@
             android:parentActivityName=".activity.MainActivity">
         </activity>
 
-
-
-
         <activity android:name=".YouTubeActivity"
             android:label="YouTubeActivity"
             android:parentActivityName=".activity.MainActivity">
-
         </activity>
 
         <activity android:name=".YoutubeFragment"
@@ -71,11 +62,14 @@
             android:parentActivityName=".activity.MainActivity">
 
         </activity>
+        
 
-    <activity android:name=".activity.SingleItemView"
+        
+        <activity android:name=".activity.SingleItemView"
         android:parentActivityName=".activity.MainActivity" >
 
-    </activity>
+        </activity>
+        
         <activity android:name=".activity.MapActivity"
             android:parentActivityName=".activity.MainActivity" >
 

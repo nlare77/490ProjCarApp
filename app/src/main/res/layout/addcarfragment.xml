@@ -3,25 +3,30 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    >
 
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add Car Information to Database"
+        android:text="@string/Addcar"
         android:textSize="20sp"
         android:id="@+id/Title"
         android:paddingBottom="20dp"
+        android:textColor="@color/black"
+        android:layout_centerHorizontal="true"
         />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/carmodellabel"
         android:textSize="16sp"
-        android:padding="2dp"
+        android:padding="12dp"
         android:text="Car Model:"
         android:layout_below="@id/Title"
+        android:textColor="@color/black"
         />
 
     <EditText
@@ -29,8 +34,11 @@
         android:layout_height="wrap_content"
         android:id="@+id/carmodelinput"
         android:textSize="16sp"
-        android:layout_toRightOf="@id/carmodellabel"
-        android:layout_alignBottom="@+id/carmodellabel" />
+        android:textColor="@color/black"
+        android:layout_below="@+id/Title"
+        android:layout_toEndOf="@+id/carmakelabel"
+        android:layout_toStartOf="@+id/addcarbutton"
+        android:layout_alignEnd="@+id/carmakeinput" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -38,8 +46,9 @@
         android:id="@+id/carmakelabel"
         android:text="Car Make:"
         android:textSize="16sp"
-        android:padding="2dp"
+        android:padding="12dp"
         android:layout_below="@id/carmodellabel"
+        android:textColor="@color/black"
         />
 
     <EditText
@@ -47,9 +56,10 @@
         android:layout_height="wrap_content"
         android:id="@+id/carmakeinput"
         android:textSize="16sp"
-        android:layout_toRightOf="@id/carmakelabel"
-        android:layout_below="@+id/carmodelinput"
-        android:layout_alignBottom="@+id/carmakelabel" />
+        android:textColor="@color/black"
+        android:layout_toEndOf="@+id/carmakelabel"
+        android:layout_below="@+id/carmodellabel"
+        android:layout_alignEnd="@+id/addcarbutton" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -57,8 +67,9 @@
         android:id="@+id/youtubekey"
         android:text="YouTube Key:"
         android:textSize="16sp"
-        android:padding="2dp"
+        android:padding="12dp"
         android:layout_below="@id/carmakelabel"
+        android:textColor="@color/black"
         />
 
     <EditText
@@ -66,9 +77,10 @@
         android:layout_height="wrap_content"
         android:id="@+id/youtubekeyinput"
         android:textSize="16sp"
-        android:layout_toRightOf="@id/youtubekey"
-        android:layout_below="@+id/carmodelinput"
-        android:layout_alignBottom="@+id/youtubekey" />
+        android:textColor="@color/black"
+        android:layout_alignTop="@+id/youtubekey"
+        android:layout_toEndOf="@+id/youtubekey"
+        android:layout_alignEnd="@+id/carmakeinput" />
 
 
     <TextView
@@ -77,8 +89,9 @@
         android:id="@+id/enginelabel"
         android:text="Engine:"
         android:textSize="16sp"
-        android:padding="2dp"
+        android:padding="12dp"
         android:layout_below="@id/youtubekey"
+        android:textColor="@color/black"
         />
 
     <EditText
@@ -86,9 +99,11 @@
         android:layout_height="wrap_content"
         android:id="@+id/enginelabelinput"
         android:textSize="16sp"
-        android:layout_toRightOf="@id/enginelabel"
+        android:textColor="@color/black"
+
         android:layout_below="@+id/youtubekey"
-        android:layout_alignBottom="@+id/enginelabel" />
+        android:layout_alignEnd="@+id/carmakeinput"
+        android:layout_toEndOf="@+id/enginelabel" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -96,8 +111,9 @@
         android:id="@+id/sixtyTimelabellabel"
         android:text="Sixty Time:"
         android:textSize="16sp"
-        android:padding="2dp"
+        android:padding="12dp"
         android:layout_below="@id/enginelabel"
+        android:textColor="@color/black"
         />
 
     <EditText
@@ -105,8 +121,11 @@
         android:layout_height="wrap_content"
         android:id="@+id/sixtyTimelabelinput"
         android:textSize="16sp"
-        android:layout_alignBottom="@+id/sixtyTimelabellabel"
-        android:layout_toEndOf="@+id/enginelabelinput" />
+        android:textColor="@color/black"
+
+        android:layout_toEndOf="@+id/carmakelabel"
+        android:layout_alignTop="@+id/sixtyTimelabellabel"
+        android:layout_alignEnd="@+id/enginelabelinput" />
 
 
     <TextView
@@ -115,8 +134,9 @@
         android:id="@+id/topSpeedlabel"
         android:text="Top Speed:"
         android:textSize="16sp"
-        android:padding="2dp"
+        android:padding="12dp"
         android:layout_below="@id/sixtyTimelabellabel"
+        android:textColor="@color/black"
         />
 
     <EditText
@@ -124,16 +144,22 @@
         android:layout_height="wrap_content"
         android:id="@+id/topSpeedinput"
         android:textSize="16sp"
-        android:layout_alignBottom="@+id/topSpeedlabel"
-        android:layout_toEndOf="@+id/topSpeedlabel" />
+        android:layout_toEndOf="@+id/topSpeedlabel"
+        android:textColor="@color/black"
+
+        android:layout_below="@+id/sixtyTimelabellabel"
+        android:layout_alignStart="@+id/sixtyTimelabelinput"
+        android:layout_alignEnd="@+id/addcarbutton" />
 
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/addcarbutton"
+        android:padding="6dp"
         android:text="Add Car"
         android:layout_below="@id/topSpeedlabel"
+        android:layout_centerHorizontal="true"
         />
 
 

@@ -2,19 +2,24 @@ package com.n.carapp.activity;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.Fragment;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ListView;
 
-import com.n.carapp.core.CarInfo;
-import com.n.carapp.adapter.ListViewAdapter;
+import com.n.carapp.Fragment.AddCarFragment;
 import com.n.carapp.R;
 import com.n.carapp.YouTubeActivity;
+import com.n.carapp.adapter.ListViewAdapter;
+import com.n.carapp.core.CarInfo;
 import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
@@ -35,13 +40,17 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_main);
+        setContentView(R.layout.activity_main);
+
+        if (savedInstanceState == null) {
+            getFragmentManager().beginTransaction()
+                    .add(R.id.container, new PlaceholderFragment())
+                    .commit();
+        }
 
         ActionBar actionBar = getActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-
-
+        //actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
         new RemoteDataTask().execute();
 
@@ -73,9 +82,11 @@ public class MainActivity extends Activity {
     }
 
     private void addCar() {
-        Intent addcarintent = new Intent(MainActivity.this,AddCarActivity.class);
-        MainActivity.this.startActivity(addcarintent);
-
+        //Intent addcarintent = new Intent(MainActivity.this,AddCarActivity.class);
+        //MainActivity.this.startActivity(addcarintent);
+        getFragmentManager().beginTransaction()
+                .replace(R.id.container,new AddCarFragment())
+                .commit();
     }
 
     private void requests() {
@@ -155,7 +166,21 @@ public class MainActivity extends Activity {
 
             }
 
+    public static class PlaceholderFragment extends Fragment {
+
+        public PlaceholderFragment() {
         }
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                 Bundle savedInstanceState) {
+            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+            return rootView;
+
+
+        }
+    }
+}
 
 
 

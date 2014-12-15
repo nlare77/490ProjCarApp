@@ -15,6 +15,13 @@
     <color name="white">#F9F8FA</color>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="request_description">This is where users can type in requests for additional cars to be added to the appplicaton at a later date.</string>
+    <string name="request_description">Enter Vehicles you would like to see in this app.</string>
+    <string name="vehicle">Vehicle Request</string>
+    <string name="request">Enter Request Here</string>
+    <string name="Enter">Enter</string>
+    <string name="requestlist">List of Current Vehicle Requests</string>
+    <string name="Addcar">Add Car Information to Database</string>
+    <string name="cars">The Cars</string>
+    <string name="videos">Video List</string>
 
 </resources>

@@ -4,38 +4,52 @@
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal" >
+    android:orientation="horizontal"
+    android:id="@+id/req">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/vehicle"
+        android:textSize="30sp"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="30dp"
+
+        />
 
     <EditText android:id="@+id/edit_message"
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:hint="Enter Request Here" />
-
-
+        android:hint="@string/request"
+        android:layout_alignBottom="@+id/search_btn"
+        android:layout_marginLeft="50dp"
+         />
 
 
     <Button
         android:id="@+id/search_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Search"
-
+        android:text="@string/Enter"
         android:onClick="sendRequest"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_marginTop="150dp"
+        android:layout_toRightOf="@id/edit_message" />
+
+
     <TextView
         android:id="@+id/requestinfo"
-
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:text="@string/request_description"
         android:layout_weight="1"
-        android:layout_below="@id/edit_message"
-        android:paddingTop="30dp"
-
-        android:layout_gravity="center_vertical" />
+        android:paddingTop="20dp"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/edit_message"
+ />
 
 </RelativeLayout>
